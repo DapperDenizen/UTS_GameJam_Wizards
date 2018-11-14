@@ -6,7 +6,11 @@ public class Teleport : Spell {
 
     [SerializeField] float maxDist;
     [SerializeField] GameObject ninjaSmoke;
-
+    [SerializeField] float chargeTime;
+    public override float ChargeTime()
+    {
+        return chargeTime;
+    }
     public override string myName()
     {
         return "Teleport";

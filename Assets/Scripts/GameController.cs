@@ -31,7 +31,6 @@ public class GameController : MonoBehaviour {
 
         Spell[] toConvert = GetComponents<Spell>();
         //probably could just use an array here
-        print(toConvert.Length);
         foreach (Spell sp in toConvert)
         {
             spellList.Add(sp);

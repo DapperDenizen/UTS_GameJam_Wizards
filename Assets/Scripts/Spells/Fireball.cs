@@ -5,7 +5,11 @@ using UnityEngine;
 public class Fireball : Spell {
 
     public GameObject fireballRef;
-
+    [SerializeField] float chargeTime;
+    public override float ChargeTime()
+    {
+        return chargeTime;
+    }
     public override string myName()
     {
         return "Fireball";

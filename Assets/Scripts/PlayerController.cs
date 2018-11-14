@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public int myID;
     public float health = 100.0f;
-    public float movementSpeed = 5.0f;
+    public float movementSpeed = 20f;
     enum CastState { Charging,Charged, Recharging ,Neutral};
     CastState myState = CastState.Neutral;
     public Rigidbody rb;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
         if (myState == CastState.Charging)
         {
             //check the time
-            if (Time.time - StartCharge >= chargeTime)
+            if (Time.time - StartCharge >= mySpells.Peek().ChargeTime())
             {
                 myState = CastState.Charged;
             }
@@ -106,8 +106,8 @@ public class PlayerController : MonoBehaviour {
             case "Fireball": myGUI.ChangeSpell("fireball"); break;
             case "MagicMissle": myGUI.ChangeSpell("missle"); break;
             case "FogetMeNot": myGUI.ChangeSpell("forget"); break;
-            case "ShittyHeal": myGUI.ChangeSpell("heal"); break;
-            case "Y33T": myGUI.ChangeSpell("yeet"); break;
+            case "Heal": myGUI.ChangeSpell("heal"); break;
+            case "Push": myGUI.ChangeSpell("yeet"); break;
             case "Teleport": myGUI.ChangeSpell("teleport"); break;
 
             default:break;

@@ -8,10 +8,6 @@ public class NextSpellScript : MonoBehaviour {
 	public SpriteRenderer nextSpellRenderer;
     public string nexSpell;
 
-    private void Update()
-    {
-        nextSpellRenderer.transform.LookAt(Camera.main.transform);
-    }
 
     public void ChangeSpell (string nextSpell) {
         nexSpell = nextSpell;

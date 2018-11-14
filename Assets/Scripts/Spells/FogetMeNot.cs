@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FogetMeNot : Spell {
-
+    GameObject toForget;
     [SerializeField] float maxDist = 6f;
     [SerializeField] GameObject forgetfulPoof;
+    [SerializeField] float chargeTime;
+    public override float ChargeTime()
+    {
+        return chargeTime;
+    }
     public override string myName()
     {
         return "FogetMeNot";
@@ -13,22 +18,28 @@ public class FogetMeNot : Spell {
 
     public override void Activate(Vector3 origin, Vector3 dir, Transform wizTransform)
     {
-        Ray myRay = new Ray(origin, dir);
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(myRay, out hit, maxDist))
+        
+        float minDist = float.MaxValue;
+        GameObject[] possibles = GameObject.FindGameObjectsWithTag("Wizard");
+        foreach (GameObject target in possibles)
         {
 
-            if (hit.transform.CompareTag("Wizard")) {
-
-                PlayerController target = hit.transform.GetComponent<PlayerController>();
-                target.AddSpell(target.myDad.GetNewSpell());
-                Instantiate(forgetfulPoof, target.transform.position, Quaternion.identity);
-                //MAXIMUM HACKINESS
+            if (Vector3.Distance(target.transform.position, origin) < minDist)
+            {
+                if (target.transform == wizTransform) { continue; } //no heals for yaself buddy!
+                minDist = Vector3.Distance(target.transform.position, origin);
+                toForget = target;
             }
-
         }
+
+        if (toForget != null)
+        {
+            PlayerController pTarget = toForget.GetComponent<PlayerController>();
+            pTarget.AddSpell(pTarget.myDad.GetNewSpell());
+            Instantiate(forgetfulPoof, pTarget.transform.position, Quaternion.identity);
+        }
+
+        
 
 
     }

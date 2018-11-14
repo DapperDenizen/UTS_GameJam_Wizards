@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class MagicMissle : Spell {
     [SerializeField]GameObject MagicMissRef;
-
+    [SerializeField] float chargeTime;
+    public override float ChargeTime()
+    {
+        return chargeTime;
+    }
     public override string myName()
     {
         return "MagicMissle";

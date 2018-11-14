@@ -7,10 +7,17 @@ public class ShittyHeal : Spell {
 
     GameObject toHeal;
     [SerializeField] GameObject myBeam;
+    [SerializeField] float minHeal = 5f;
+    [SerializeField] float maxHeal = 15f;
+    [SerializeField] float chargeTime;
+    public override float ChargeTime()
+    {
+        return chargeTime;
+    }
 
     public override string myName()
     {
-        return "ShittyHeal";
+        return "Heal";
     }
 
     public override void Activate(Vector3 origin, Vector3 dir, Transform wizTransform)
@@ -34,7 +41,7 @@ public class ShittyHeal : Spell {
             lineRend.SetPosition(0, origin);
             lineRend.SetPosition(1, toHeal.transform.position);
             //do it
-            toHeal.GetComponent<PlayerController>().Damage(-15f);
+            toHeal.GetComponent<PlayerController>().Damage(-Random.Range(minHeal,maxHeal));
 
         }
     }

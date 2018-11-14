@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour {
                 pc1.RotateSelf(aimDirection);
             }
 
-            pc1.MoveSelf(P1Movement);
+            //pc1.MoveSelf(P1Movement);
             if (Input.GetButton("LB_1")) { pc1.ButtonDown(); } else { pc1.ButtonUp(); }
         }
 
@@ -39,24 +39,32 @@ public class InputManager : MonoBehaviour {
             {
                 pc2.RotateSelf(aimDirection2);
             }
-            pc2.MoveSelf(P2Movement);
+            //pc2.MoveSelf(P2Movement);
         }
 
-        //movement for player 3
-        if (pc3 != null) {
-            Vector3 P3Movement = Vector3.zero;
-            if (Input.GetAxis("L_YAxis_3") > 0.0f) P3Movement.z = 1f;
-            if (Input.GetAxis("L_YAxis_3") < 0.0f) P3Movement.z = -1f;
-            if (Input.GetAxis("L_XAxis_3") > 0.0f) P3Movement.x = 1f;
-            if (Input.GetAxis("L_XAxis_3") < 0.0f) P3Movement.x = -1f;
+        //movement for player 3 -- uses keyboard and mouse!
+         if (pc3 != null) {
+             Vector3 P3Movement = Vector3.zero;
+            /*
+             if (Input.GetAxis("L_YAxis_3") > 0.0f) P3Movement.z = 1f;
+             if (Input.GetAxis("L_YAxis_3") < 0.0f) P3Movement.z = -1f;
+             if (Input.GetAxis("L_XAxis_3") > 0.0f) P3Movement.x = 1f;
+             if (Input.GetAxis("L_XAxis_3") < 0.0f) P3Movement.x = -1f;
+             //*/
+            if (Input.GetKey(KeyCode.A)) { P3Movement.x = -1f; } else if (Input.GetKey(KeyCode.D)) { P3Movement.x = 1f; } else { P3Movement.x = 0; }
+            if (Input.GetKey(KeyCode.W)) { P3Movement.z = 1f; } else if (Input.GetKey(KeyCode.S)) { P3Movement.z = -1f; } else { P3Movement.z = 0; }
+
             pc3.MoveSelf(P3Movement);
-            if (Input.GetButton("LB_3")) { pc3.ButtonDown(); } else { pc3.ButtonUp(); }
-            Vector3 aimDirection3 = new Vector3(Input.GetAxis("R_XAxis_3"), 0, -Input.GetAxis("R_YAxis_3"));
+            Vector3 aimDirection3 = Vector3.zero;
+            if (Input.GetKey(KeyCode.LeftArrow)) { aimDirection3.x = -1f; } else if (Input.GetKey(KeyCode.RightArrow)) { aimDirection3.x = 1f; } else { P3Movement.x = 0; }
+            if (Input.GetKey(KeyCode.UpArrow)) { aimDirection3.z = 1f; } else if (Input.GetKey(KeyCode.DownArrow)) { aimDirection3.z = -1f; } else { P3Movement.z = 0; }
             if (aimDirection3 != Vector3.zero)
             {
                 pc3.RotateSelf(aimDirection3);
             }
-            pc3.MoveSelf(P3Movement);
-        }
+            if (Input.GetKey(KeyCode.Space)) { pc3.ButtonDown(); } else { pc3.ButtonUp(); }
+
+             //pc3.MoveSelf(P3Movement);
+         }//*/
     }
 }
