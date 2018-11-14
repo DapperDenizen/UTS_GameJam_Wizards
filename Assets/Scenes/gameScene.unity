@@ -178,7 +178,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1001 &151273896
+--- !u!1001 &167789432
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -187,15 +187,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4334678374362366, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.94725454
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334678374362366, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 36.1775
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334678374362366, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -20.093288
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334678374362366, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
       propertyPath: m_LocalRotation.x
