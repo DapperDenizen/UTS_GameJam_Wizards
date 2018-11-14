@@ -9,6 +9,7 @@ public class ShittyHeal : Spell {
     [SerializeField] GameObject myBeam;
     [SerializeField] float minHeal = 5f;
     [SerializeField] float maxHeal = 15f;
+    [SerializeField] GameObject myPoof;
     [SerializeField] float chargeTime;
     public override float ChargeTime()
     {
@@ -40,6 +41,7 @@ public class ShittyHeal : Spell {
            LineRenderer lineRend = Instantiate(myBeam).GetComponent<LineRenderer>();
             lineRend.SetPosition(0, origin);
             lineRend.SetPosition(1, toHeal.transform.position);
+            Instantiate(myPoof, toHeal.transform.position, Quaternion.identity);
             //do it
             toHeal.GetComponent<PlayerController>().Damage(-Random.Range(minHeal,maxHeal));
 

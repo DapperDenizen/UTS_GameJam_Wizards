@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 
     public void MoveSelf(Vector3 dir) {
         if (stunned) { return; }
-        float mySpeed = myState == CastState.Charging || myState == CastState.Charged ? movementSpeed * 0.25f : movementSpeed;
+        float mySpeed = myState == CastState.Charging || myState == CastState.Charged ? movementSpeed * .5f : movementSpeed;
         if(rb != null) rb.velocity = dir*mySpeed;
 
     }

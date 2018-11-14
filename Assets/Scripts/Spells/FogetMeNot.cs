@@ -6,6 +6,7 @@ public class FogetMeNot : Spell {
     GameObject toForget;
     [SerializeField] float maxDist = 6f;
     [SerializeField] GameObject forgetfulPoof;
+    [SerializeField] GameObject forgetfullBeam;
     [SerializeField] float chargeTime;
     public override float ChargeTime()
     {
@@ -34,6 +35,9 @@ public class FogetMeNot : Spell {
 
         if (toForget != null)
         {
+            LineRenderer lineRend = Instantiate(forgetfullBeam).GetComponent<LineRenderer>();
+            lineRend.SetPosition(0, origin);
+            lineRend.SetPosition(1, toForget.transform.position);
             PlayerController pTarget = toForget.GetComponent<PlayerController>();
             pTarget.AddSpell(pTarget.myDad.GetNewSpell());
             Instantiate(forgetfulPoof, pTarget.transform.position, Quaternion.identity);

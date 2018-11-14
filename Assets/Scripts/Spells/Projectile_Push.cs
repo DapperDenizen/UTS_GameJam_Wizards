@@ -6,7 +6,7 @@ public class Projectile_Push : Projectile {
 
     [SerializeField] float pushForce = 100f;
     bool directed = false;
-
+    Transform dontPushME;
     public override void MoveTo()
     {
         if (!directed)
@@ -25,13 +25,18 @@ public class Projectile_Push : Projectile {
         //dont hit on me!
     }
 
+    public void PushZoneInit(Transform myWizard)
+    {
+        dontPushME = myWizard;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.transform == dontPushME) {/*dont push him please*/ return; }
         if (other.transform.CompareTag("Wizard"))
         {
             //push them
-            other.GetComponent<PlayerController>().Knockback(myTrans.position - other.transform.position, -pushForce, 1.0f);
+            other.GetComponent<PlayerController>().Knockback((myTrans.position - (heading*2f)) - other.transform.position, -pushForce, 1.0f);
 
         }
         else if(other.transform.transform.CompareTag("Projectile") || other.transform.transform.CompareTag("MM"))

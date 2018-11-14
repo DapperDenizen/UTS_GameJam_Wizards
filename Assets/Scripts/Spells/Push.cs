@@ -17,6 +17,8 @@ public class Push : Spell {
     public override void Activate(Vector3 origin, Vector3 dir, Transform wizTransform)
     {
         GameObject temp = Instantiate(pushRef, origin + (dir*2f), Quaternion.identity);
-        temp.GetComponent<Projectile_Push>().InitialiseMe(dir, true);
+        Projectile_Push proj = temp.GetComponent<Projectile_Push>(); 
+        proj.InitialiseMe(dir, true);
+        proj.PushZoneInit(wizTransform);
     }
 }

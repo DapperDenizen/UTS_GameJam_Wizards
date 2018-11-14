@@ -32,15 +32,25 @@ public class Projectile_Fireball : Projectile {
 
             foreach (RaycastHit h in hit)
             {
-                if (h.rigidbody) {
+                if (h.rigidbody != null) {
                     if (h.rigidbody.CompareTag("Wizard"))
                     {
-                        float bottomFloat = Vector3.Distance(h.transform.position, this.myTrans.position);
-                        if (bottomFloat < 1f) { bottomFloat = 1f; }
-                        float newDam = damage / bottomFloat;
-                        float newKnock = 5f / bottomFloat;
-                        h.transform.GetComponent<PlayerController>().Damage(newDam);
-                        h.transform.GetComponent<PlayerController>().Knockback(myTrans.position - h.transform.position, -newKnock, .2f);
+                        //check you can see them
+                        RaycastHit rayHit;
+                        Ray ray = new Ray(myTrans.position, (myTrans.position - h.point));
+                        if (Physics.Raycast(ray, out rayHit, radius))
+                        {
+                            if (rayHit.transform == h.transform)
+                            {
+
+                                float bottomFloat = Vector3.Distance(h.transform.position, this.myTrans.position);
+                                if (bottomFloat < 1f) { bottomFloat = 1f; }
+                                float newDam = damage / bottomFloat;
+                                float newKnock = 5f / bottomFloat;
+                                h.transform.GetComponent<PlayerController>().Damage(newDam);
+                                h.transform.GetComponent<PlayerController>().Knockback(myTrans.position - h.transform.position, -newKnock, .2f);
+                            }
+                        }
                     }
                 }
                 
