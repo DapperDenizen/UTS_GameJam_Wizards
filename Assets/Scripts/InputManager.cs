@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour {
                 pc1.RotateSelf(aimDirection);
             }
 
-            //pc1.MoveSelf(P1Movement);
+            pc1.MoveSelf(P1Movement);
             if (Input.GetButton("LB_1")) { pc1.ButtonDown(); } else { pc1.ButtonUp(); }
         }
 
@@ -32,15 +32,13 @@ public class InputManager : MonoBehaviour {
             if (Input.GetAxis("L_YAxis_2") < 0.0f) P2Movement.z = -1f;
             if (Input.GetAxis("L_XAxis_2") > 0.0f) P2Movement.x = 1f;
             if (Input.GetAxis("L_XAxis_2") < 0.0f) P2Movement.x = -1f;
-            print("p2 movement is "+ P2Movement);
-            pc2.MoveSelf(P2Movement);
             if (Input.GetButton("LB_2")) { pc2.ButtonDown(); } else { pc2.ButtonUp(); }
             Vector3 aimDirection2 = new Vector3(Input.GetAxis("R_XAxis_2"), 0, -Input.GetAxis("R_YAxis_2"));
             if (aimDirection2 != Vector3.zero)
             {
                 pc2.RotateSelf(aimDirection2);
             }
-            //pc2.MoveSelf(P2Movement);
+            pc2.MoveSelf(P2Movement);
         }
 
         //movement for player 3 -- uses keyboard and mouse!
