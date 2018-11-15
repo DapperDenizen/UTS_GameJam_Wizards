@@ -217,6 +217,60 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1950146112125074, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008822790055060, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157142163452614, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778382422741588, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651948458047806, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416709757594298, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108322599232968844, guid: 441e2d130e120c24b81f5a370b114d84,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108302713060313072, guid: 441e2d130e120c24b81f5a370b114d84,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108371921608895856, guid: 441e2d130e120c24b81f5a370b114d84,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108815169700178498, guid: 441e2d130e120c24b81f5a370b114d84,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108687368987207728, guid: 441e2d130e120c24b81f5a370b114d84,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108780518830646068, guid: 441e2d130e120c24b81f5a370b114d84,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 441e2d130e120c24b81f5a370b114d84, type: 2}
   m_IsPrefabParent: 0

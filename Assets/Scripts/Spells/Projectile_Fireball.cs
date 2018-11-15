@@ -46,7 +46,7 @@ public class Projectile_Fireball : Projectile {
                                 float bottomFloat = Vector3.Distance(h.transform.position, this.myTrans.position);
                                 if (bottomFloat < 1f) { bottomFloat = 1f; }
                                 float newDam = damage / bottomFloat;
-                                float newKnock = 5f / bottomFloat;
+                                float newKnock = 10f / bottomFloat;
                                 h.transform.GetComponent<PlayerController>().Damage(newDam);
                                 h.transform.GetComponent<PlayerController>().Knockback(myTrans.position - h.transform.position, -newKnock, .2f);
                             }
